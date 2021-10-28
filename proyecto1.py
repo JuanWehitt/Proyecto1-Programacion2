@@ -35,10 +35,7 @@ def listas_iguales(l1, l2):
     elif len(l1) != 0:
         ele1 = l1.pop()
         ele2 = l2.pop()
-        if ele1 == ele2 and listas_iguales(l1, l2):
-            return True
-        else:
-            return False
+        return ele1 == ele2 and listas_iguales(l1, l2)
     else:
         return True
 
