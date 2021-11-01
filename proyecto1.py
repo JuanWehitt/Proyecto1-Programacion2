@@ -1,4 +1,54 @@
 ###################################
+import re
+from functools import reduce
+
+# Expresiones Regulares
+
+#Ejercicio 1
+def verificadorMatricula(matricula):
+
+    validador = re.compile('^(L[VQ]-[A-Z]{2}([D-Z]{1}|[A-B]{1}))|(LV-[XS][0-9]{3})|(LV-(SX)[0-9]{3}$)')
+    matriculaAceptada = validador.match(matricula)
+
+    if (matriculaAceptada):
+        return print("matricula ingresada es correcta")
+    else:
+        return print("matricula ingresada es incorrecta")
+
+
+verificadorMatricula(input('ingrese matricula a validar, recuerde comenzar por las letras LV o LQ en mayusculas '))
+
+#Ejercicio 2
+
+def verificadorNumero(numero):
+
+    comparador = re.compile('^[0-1]?[0-8]?[0-9]{1,2}$')
+    numeroAceptado = comparador.match(numero)
+
+    if (numeroAceptado):
+        return print("correcto es un numero Natural inferior a 1900")
+    else:
+        return print("ingreso un numero incorrecto")
+
+
+verificadorNumero(input('ingrese un numero natural inferior a 1900 '))
+
+
+#Ejercicio Extra
+
+def verificadorCadena(cadena):
+
+    analizador = re.compile('[A-Z][a-z]+')
+    cadenaMatch = analizador.match(cadena)
+
+    if (cadenaMatch):
+        return print(f"'{cadenaMatch.group()}' es la primera palabra de la cadena con letra inicial Mayuscula y resto en minuscula")
+    else:
+        return print("cadena no tiene expresion de coicidencia")
+
+
+verificadorCadena(input('ingrese cadena de caracteres  '))
+
 # Funciones de recursion
 
 #Ejercicio 1
@@ -91,15 +141,27 @@ def lista_AA(lista):
 
 
 
-# def listar(elem):
-#     if len(elem) == 0:
-#         lista = list()
-#         return lista
-#     else:
-#         lista = listar(elem.pop()))
-#     if esEntero(lista[0]) :
-#         elemento.append(elem)
-#         return elemento
-#     else :
-#         lista = listar(elem.pop())
+# Colecciones
+
+# Ejercicio 2
+
+def generarLista(n):
+    if n == 0:
+        return [0]
+    else:
+        lista = generarLista(n- 1)
+        lista.append(n)
+        return lista
+
+def generarPI(n):
+    lista=generarLista(n)
+    terminos = list(map(lambda x: ((4 * ((-1) ** x)) / ((2 * x) + 1)),lista))
+    suma= reduce(lambda x,y: x + y, terminos)
+    return suma
+
+print(generarPI(int(input('ingresar el valor de elementos de a sumar en la Serie de Leibniz  '))))
+
+# Formato de Intercambio de Datos
+
+
 
