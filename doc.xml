@@ -1,0 +1,31 @@
+<sistMetereologico>
+   <estaciones>
+      <estacion>
+         <nombre> estacion01 </nombre>
+         <temperatura> <valor> 25 </valor> <unidad> °C </unidad> </temperatura>
+         <presion> <valor> 1 </valor> <unidad> atm < /unidad></presion>
+         <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad>
+         <velocidadViento> <valor> 10 </valor> <unidad> km/h </unidad> </velocidadViento>
+         <direccionViento> <coordenada> Norte </coordenada>< /direccionViento> 
+         <baterias> <unidad> mV </unidad> <medicion1> 0.5 </medicion1> </baterias>
+      </estacion>
+            <estacion>
+         <nombre> estacion02 </nombre>
+         <temperatura> <valor> 25 </valor> <unidad> °C </unidad> </temperatura>
+         <presion> <valor> 1 </valor> <unidad> atm < /unidad></presion>
+         <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad>
+         <velocidadViento> <valor> 10 </valor> <unidad> km/h </unidad> </velocidadViento>
+         <direccionViento> <coordenada> Norte </coordenada>< /direccionViento> 
+         <baterias> <unidad> mV </unidad> <medicion1> 0.5 </medicion1> </baterias>
+      </estacion>
+            <estacion>
+         <nombre> estacion03 </nombre>
+         <temperatura> <valor> 25 </valor> <unidad> °C </unidad> </temperatura>
+         <presion> <valor> 1 </valor> <unidad> atm < /unidad></presion>
+         <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad>
+         <velocidadViento> <valor> 10 </valor> <unidad> km/h </unidad> </velocidadViento>
+         <direccionViento> <coordenada> Norte </coordenada>< /direccionViento> 
+         <baterias> <unidad> mV </unidad> <medicion1> 0.5 </medicion1> </baterias>
+      </estacion>
+   </estaciones>
+</sistMeterologico>

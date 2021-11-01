@@ -1,6 +1,7 @@
 ###################################
 import re
 from functools import reduce
+import json
 
 # Expresiones Regulares
 
@@ -161,7 +162,73 @@ def generarPI(n):
 
 print(generarPI(int(input('ingresar el valor de elementos de a sumar en la Serie de Leibniz  '))))
 
-# Formato de Intercambio de Datos
+# Formato de Intercambio de Datos  ##############################################
+
+import json
+
+
+docSensores_json= '''
+[
+{"nombre": "estacion01",
+ "temperatura": {"valor": 25,"unidad":"°C"},
+ "presion": {"valor": 1,"unidad":"atm"},
+ "humedad": {"valor":35,"unidad":"%"},
+ "velociViento": {"valor":10,"unidad":"km/h"},
+ "direccionViento": {"coordenada":"Norte"},
+ "bateria": {"unidad":"mV",
+             "mediciones": [0.5,0.4,0.6,0.8,0.35,0.45,0.18,0.54,0.55,0.6,0.48,0.22,0.15,0.30,0.70,0.43,0.44,0.25]}
+},
+{"nombre": "estacion02",
+ "temperatura": {"valor": 68,"unidad":"°F"},
+ "humedad": {"valor":50,"unidad":"%"},
+ "bateria": {"unidad":"mV",
+             "mediciones": [0.1,0.2,0.5,0.45,0.55,0.25,0.28,0.34,0.45,0.62,0.29,0.31,0.25,0.35,0.75,0.33,0.44,0.25]}
+},
+{"nombre": "estacion03",
+ "temperatura": {"valor": 30,"unidad":"°C"},
+ "presion": {"valor": 1.01,"unidad":"atm"},
+ "humedad": {"valor":40,"unidad":"%"},
+ "bateria": {"unidad":"mV",
+             "mediciones": [0.25,0.14,0.46,0.18,0.15,0.75,0.48,0.34,0.55,0.62,0.38,0.52,0.35,0.28,0.20,0.43,0.44,0.25]}
+}
+]
+'''
+
+
+#Ejercicio1
+
+
+Lista_diccs= json.loads(docSensores_json)
+
+ListaMed=[]
+sumatroria=0
+nombre="estacion03"
+if (nombre=="estacion01"):
+    print(f" La Estación01 tiene:'{len(Lista_diccs[0])-2}' sensores")
+    print(f" Temperatura :" "{} {}".format(Lista_diccs[0]["temperatura"]["valor"],Lista_diccs[0]["temperatura"]["unidad"]))
+    print(f" Presion:" "{} {}".format(Lista_diccs[0]["presion"]["valor"],Lista_diccs[0]["presion"]["unidad"]))
+    print(f" humedad:" "{} {}".format(Lista_diccs[0]["humedad"]["valor"], Lista_diccs[0]["humedad"]["unidad"]))
+    print(f" velocidad viento:" "{} {}".format(Lista_diccs[0]["velociViento"]["valor"], Lista_diccs[0]["velociViento"]["unidad"]))
+    print(f" dirección del viento:" "{}".format(Lista_diccs[0]["direccionViento"]["coordenada"],))
+
+else:
+         if (nombre=="estacion02"):
+             print(f" La Estación01 tiene:'{len(Lista_diccs[1]) - 2}' sensores")
+             print(f" Temperatura :" "{} {}".format(Lista_diccs[1]["temperatura"]["valor"],Lista_diccs[1]["temperatura"]["unidad"]))
+             print(f" humedad:" "{} {}".format(Lista_diccs[1]["humedad"]["valor"], Lista_diccs[1]["humedad"]["unidad"]))
+         else:
+              if (nombre=="estacion03"):
+                 print(f" La Estación01 tiene:'{len(Lista_diccs[2]) - 2}' sensores")
+                 print(f" Temperatura :" "{} {}".format(Lista_diccs[2]["temperatura"]["valor"],Lista_diccs[2]["temperatura"]["unidad"]))
+                 print(f" Presion:" "{} {}".format(Lista_diccs[2]["presion"]["valor"], Lista_diccs[2]["presion"]["unidad"]))
+                 print(f" humedad:" "{} {}".format(Lista_diccs[2]["humedad"]["valor"], Lista_diccs[2]["humedad"]["unidad"]))
+              else:
+                 print('nombre de estación errado')
+
+
+
+#Ejercicio2
+
 
 
 
