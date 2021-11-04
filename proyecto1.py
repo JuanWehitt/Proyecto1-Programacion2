@@ -193,34 +193,16 @@ docSensores_json= '''
 '''
 
 # Ejercicio 1
+def imprimirSensoresEstacion(estacion):
+    print("Cantidad de sensores de la estacion "'"{}"'" : {}".format(estacion['nombre'],len(estacion)-2))
+    for key in estacion:
+        sensor = estacion[key]
+        if key != 'nombre' and key != 'bateria' and key != 'direccionViento':
+            print(key + ": {} {}" .format(sensor.get('valor'),sensor.get('unidad')))
+        elif key == 'direccionViento' :
+            print(key + ": {}".format(sensor.get('coordenada')))
 
 
-Lista_diccs= json.loads(docSensores_json)
-
-ListaMed=[]
-sumatroria=0
-nombre="estacion03"
-if (nombre=="estacion01"):
-    print(f" La Estación01 tiene:'{len(Lista_diccs[0])-2}' sensores")
-    print(f" Temperatura :" "{} {}".format(Lista_diccs[0]["temperatura"]["valor"],Lista_diccs[0]["temperatura"]["unidad"]))
-    print(f" Presion:" "{} {}".format(Lista_diccs[0]["presion"]["valor"],Lista_diccs[0]["presion"]["unidad"]))
-    print(f" humedad:" "{} {}".format(Lista_diccs[0]["humedad"]["valor"], Lista_diccs[0]["humedad"]["unidad"]))
-    print(f" velocidad viento:" "{} {}".format(Lista_diccs[0]["velociViento"]["valor"], Lista_diccs[0]["velociViento"]["unidad"]))
-    print(f" dirección del viento:" "{}".format(Lista_diccs[0]["direccionViento"]["coordenada"],))
-
-else:
-         if (nombre=="estacion02"):
-             print(f" La Estación01 tiene:'{len(Lista_diccs[1]) - 2}' sensores")
-             print(f" Temperatura :" "{} {}".format(Lista_diccs[1]["temperatura"]["valor"],Lista_diccs[1]["temperatura"]["unidad"]))
-             print(f" humedad:" "{} {}".format(Lista_diccs[1]["humedad"]["valor"], Lista_diccs[1]["humedad"]["unidad"]))
-         else:
-              if (nombre=="estacion03"):
-                 print(f" La Estación01 tiene:'{len(Lista_diccs[2]) - 2}' sensores")
-                 print(f" Temperatura :" "{} {}".format(Lista_diccs[2]["temperatura"]["valor"],Lista_diccs[2]["temperatura"]["unidad"]))
-                 print(f" Presion:" "{} {}".format(Lista_diccs[2]["presion"]["valor"], Lista_diccs[2]["presion"]["unidad"]))
-                 print(f" humedad:" "{} {}".format(Lista_diccs[2]["humedad"]["valor"], Lista_diccs[2]["humedad"]["unidad"]))
-              else:
-                 print('nombre de estación errado')
 
 
 
