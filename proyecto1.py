@@ -12,9 +12,9 @@ def verificadorMatricula(matricula):
     matriculaAceptada = validador.match(matricula)
 
     if (matriculaAceptada):
-        return print("matricula ingresada es correcta")
+        return True
     else:
-        return print("matricula ingresada es incorrecta")
+        return False
 
 
 #verificadorMatricula(input('ingrese matricula a validar, recuerde comenzar por las letras LV o LQ en mayusculas '))
@@ -27,9 +27,9 @@ def verificadorNumero(numero):
     numeroAceptado = comparador.match(numero)
 
     if (numeroAceptado):
-        return print("correcto es un numero Natural inferior a 1900")
+        return True
     else:
-        return print("ingreso un numero incorrecto")
+        return False
 
 
 #verificadorNumero(input('ingrese un numero natural inferior a 1900 '))
@@ -329,7 +329,7 @@ while not salir :
         while not listoCodificarNumero :
             numero = int(input("Ingrese numero entero: "))
             print("El numero "+ str(numero) +" se codifica a "+ str(codificar(numero)) )
-            opcionCodificar = input("Desea ingfresar otro numero? s/n ")
+            opcionCodificar = input("Desea ingresar otro numero? s/n ")
             listoCodificarNumero = opcionCodificar == 'n'
     elif opcion == 5 :
         while not listoListaDeListas :
@@ -375,7 +375,7 @@ while not salir :
         while not listoCantidadDigitosPar :
             print("Se computara si un numero entero tiene cantidad de digitos par o no \n"+
                   "ej: 105 devuelve falso porque tiene 3 digitos \n" +
-                  "    6789 devuelve verdadero porqie tiene 4 digitos\n"
+                  "    6789 devuelve verdadero porque tiene 4 digitos\n"
                   )
             numero = int(input("Ingrese numero entero: "))
             if esPar(numero) :
@@ -397,7 +397,7 @@ while not salir :
     elif opcion == 10 :
         while not listoFiltrarPatentes :
             print("Se filtraran las patentes de una lista que se generara a continuacion.")
-            print("El formato de las patentes debe ser XX-nnn-XX. donde X es una letra en mayuscula, y n es un digito")
+            print("El formato de las patentes debe ser XX-ddd-XX. donde X es una letra en mayuscula, y d es un digito")
             lista = []
             listoGenerarLista = False
             while not listoGenerarLista:
@@ -429,7 +429,8 @@ while not salir :
             opcion = input("Desea volver a intentarlo? s/n ")
             listoAproximarPI = opcion == 'n'
     elif opcion == 13 :
-        print("A partir del nombre de la estacion se mostrara en pantalla los sensores disponibles.")
+        print("A partir del nombre de la estacion se mostrara en pantalla los sensores disponibles.\n" +
+              "Por ejemplo: estacion01")
         while not listoEstacionSensores :
             nombre = input("Ingrese el nombre de la estacion: ")
             #lista_diccs= json.loads(docSensores_json)
@@ -441,8 +442,8 @@ while not salir :
             opcion = input("Desea ingresar otra estacion? s/n ")
             listoEstacionSensores = opcion == 'n'
     elif opcion == 14 :
-        print("La estacion con menos bateria es (se buscara en representacion json): ")
-        print(Lista_diccs[encontrarMenor(generarPromedios(Lista_diccs))].get('nombre'))
+        print("La estacion con menos bateria es: {}".format(Lista_diccs[encontrarMenor(generarPromedios(Lista_diccs))].get('nombre')))
+        #print(Lista_diccs[encontrarMenor(generarPromedios(Lista_diccs))].get('nombre'))
         input("Presione ENTER para volver al menu\n")
     # elif opcion == 15 :
     #     print("La estacion con menos bateria es (se buscara en representacion xml): ")
