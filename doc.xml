@@ -7,25 +7,81 @@
          <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad>
          <velocidadViento> <valor> 10 </valor> <unidad> km/h </unidad> </velocidadViento>
          <direccionViento> <coordenada> Norte </coordenada>< /direccionViento> 
-         <baterias> <unidad> mV </unidad> <medicion1> 0.5 </medicion1> </baterias>
+         <baterias> <unidad> mV </unidad> 
+                    <medicion> 0.50 </medicion> 
+                    <medicion> 0.40 </medicion>
+                    <medicion> 0.60 </medicion> 
+                    <medicion> 0.80 </medicion>
+                    <medicion> 0.35 </medicion> 
+                    <medicion> 0.45 </medicion>
+                    <medicion> 0.18 </medicion> 
+                    <medicion> 0.54 </meicion>
+                    <medicion> 0.55 </medicion> 
+                    <medicion> 0.60 </medicion>
+                    <medicion> 0.48 </medicion> 
+                    <medicion> 0.22 </medicion>
+                    <medicion> 0.15 </medicion> 
+                    <medicion> 0.30 </medicion>
+                    <medicion> 0.70 </medicion> 
+                    <medicion> 0.43 </medicion>
+                    <medicion> 0.44 </medicion> 
+                    <medicion> 0.25 </medicion>
+                    <medicion> 0.30 </medicion> 
+                    <medicion> 0.42 </medicion>
+         </baterias>
       </estacion>
             <estacion>
          <nombre> estacion02 </nombre>
          <temperatura> <valor> 25 </valor> <unidad> °C </unidad> </temperatura>
-         <presion> <valor> 1 </valor> <unidad> atm < /unidad></presion>
          <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad>
-         <velocidadViento> <valor> 10 </valor> <unidad> km/h </unidad> </velocidadViento>
-         <direccionViento> <coordenada> Norte </coordenada>< /direccionViento> 
-         <baterias> <unidad> mV </unidad> <medicion1> 0.5 </medicion1> </baterias>
+         <baterias> <unidad> mV </unidad> 
+                    <medicion> 0.10 </medicion> 
+                    <medicion> 0.20 </medicion>
+                    <medicion> 0.50 </medicion> 
+                    <medicion> 0.45 </medicion>
+                    <medicion> 0.55 </medicion> 
+                    <medicion> 0.25 </medicion>
+                    <medicion> 0.28 </medicion> 
+                    <medicion> 0.34 </medicion>
+                    <medicion> 0.45 </medicion> 
+                    <medicion> 0.62 </medicion>
+                    <medicion> 0.29 </medicion> 
+                    <medicion> 0.31 </medicion>
+                    <medicion> 0.25 </medicion> 
+                    <medicion> 0.35 </medicion>
+                    <medicion> 0.75 </medicion> 
+                    <medicion> 0.33 </medicion>
+                    <medicion> 0.44 </medicion> 
+                    <medicion> 0.25 </medicion>
+                    <medicion> 0.55 </medicion> 
+                    <medicion> 0.36 </medicion>
       </estacion>
             <estacion>
          <nombre> estacion03 </nombre>
          <temperatura> <valor> 25 </valor> <unidad> °C </unidad> </temperatura>
          <presion> <valor> 1 </valor> <unidad> atm < /unidad></presion>
-         <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad>
-         <velocidadViento> <valor> 10 </valor> <unidad> km/h </unidad> </velocidadViento>
-         <direccionViento> <coordenada> Norte </coordenada>< /direccionViento> 
-         <baterias> <unidad> mV </unidad> <medicion1> 0.5 </medicion1> </baterias>
+         <humedad> <valor> 35 </valor> <unidad> % < /unidad> </humedad> 
+         <baterias> <unidad> mV </unidad> 
+                    <medicion> 0.25 </medicion> 
+                    <medicion> 0.14 </medicion>
+                    <medicion> 0.46 </medicion> 
+                    <medicion> 0.18 </medicion>
+                    <medicion> 0.15 </medicion> 
+                    <medicion> 0.75 </medicion>
+                    <medicion> 0.48 </medicion> 
+                    <medicion> 0.34 </medicion>
+                    <medicion> 0.55 </medicion> 
+                    <medicion> 0.62 </medicion>
+                    <medicion> 0.38 </medicion> 
+                    <medicion> 0.52 </medicion>
+                    <medicion> 0.35 </medicion> 
+                    <medicion> 0.28 </medicion>
+                    <medicion> 0.20 </medicion> 
+                    <medicion> 0.43 </medicion>
+                    <medicion> 0.44 </medicion> 
+                    <medicion> 0.25 </medicion>
+                    <medicion> 0.19 </medicion> 
+                    <medicion> 0.32 </medicion>
       </estacion>
    </estaciones>
 </sistMeterologico>
