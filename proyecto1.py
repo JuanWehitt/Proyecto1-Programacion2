@@ -164,11 +164,9 @@ print(generarPI(int(input('ingresar el valor de elementos de a sumar en la Serie
 
 # Formato de Intercambio de Datos  ##############################################
 
-import json
-
 
 docSensores_json= '''
-[
+[  
 {"nombre": "estacion01",
  "temperatura": {"valor": 25,"unidad":"°C"},
  "presion": {"valor": 1,"unidad":"atm"},
@@ -176,26 +174,25 @@ docSensores_json= '''
  "velociViento": {"valor":10,"unidad":"km/h"},
  "direccionViento": {"coordenada":"Norte"},
  "bateria": {"unidad":"mV",
-             "mediciones": [0.5,0.4,0.6,0.8,0.35,0.45,0.18,0.54,0.55,0.6,0.48,0.22,0.15,0.30,0.70,0.43,0.44,0.25]}
+             "mediciones": [0.50,0.40,0.60,0.80,0.35,0.45,0.18,0.54,0.55,0.60,0.48,0.22,0.15,0.30,0.70,0.43,0.44,0.25,0.30,0.42]}
 },
 {"nombre": "estacion02",
  "temperatura": {"valor": 68,"unidad":"°F"},
  "humedad": {"valor":50,"unidad":"%"},
  "bateria": {"unidad":"mV",
-             "mediciones": [0.1,0.2,0.5,0.45,0.55,0.25,0.28,0.34,0.45,0.62,0.29,0.31,0.25,0.35,0.75,0.33,0.44,0.25]}
+             "mediciones": [0.10,0.20,0.50,0.45,0.55,0.25,0.28,0.34,0.45,0.62,0.29,0.31,0.25,0.35,0.75,0.33,0.44,0.25,0.55,0.36]}
 },
 {"nombre": "estacion03",
  "temperatura": {"valor": 30,"unidad":"°C"},
  "presion": {"valor": 1.01,"unidad":"atm"},
  "humedad": {"valor":40,"unidad":"%"},
  "bateria": {"unidad":"mV",
-             "mediciones": [0.25,0.14,0.46,0.18,0.15,0.75,0.48,0.34,0.55,0.62,0.38,0.52,0.35,0.28,0.20,0.43,0.44,0.25]}
+             "mediciones": [0.25,0.14,0.46,0.18,0.15,0.75,0.48,0.34,0.55,0.62,0.38,0.52,0.35,0.28,0.20,0.43,0.44,0.25,0.19,0.32]}
 }
 ]
 '''
 
-
-#Ejercicio1
+# Ejercicio 1
 
 
 Lista_diccs= json.loads(docSensores_json)
@@ -229,6 +226,31 @@ else:
 
 #Ejercicio2
 
+Lista_diccs= json.loads(docSensores_json)
+
+
+def generarPromedios(lista):
+    promVolts = []
+    for elemento in lista:
+        suma=0
+        medidas=(elemento.get("bateria").get("mediciones"))
+        for medida in medidas:
+           suma+=medida
+        promedio=suma/(len(medidas))
+        promVolts.append(promedio)
+    return promVolts
+
+def encontrarMenor(listaVolt):
+    menor=1000
+    pos=0
+    for volt in listaVolt:
+        if (volt<menor):
+            menor=volt
+            posicion=pos
+        pos+=1
+    return posicion
+
+print(Lista_diccs[encontrarMenor(generarPromedios(Lista_diccs))].get('nombre'))
 
 
 
