@@ -17,7 +17,7 @@ def verificadorMatricula(matricula):
         return print("matricula ingresada es incorrecta")
 
 
-verificadorMatricula(input('ingrese matricula a validar, recuerde comenzar por las letras LV o LQ en mayusculas '))
+#verificadorMatricula(input('ingrese matricula a validar, recuerde comenzar por las letras LV o LQ en mayusculas '))
 
 #Ejercicio 2
 
@@ -32,7 +32,7 @@ def verificadorNumero(numero):
         return print("ingreso un numero incorrecto")
 
 
-verificadorNumero(input('ingrese un numero natural inferior a 1900 '))
+#verificadorNumero(input('ingrese un numero natural inferior a 1900 '))
 
 
 #Ejercicio Extra
@@ -48,7 +48,7 @@ def verificadorCadena(cadena):
         return print("cadena no tiene expresion de coicidencia")
 
 
-verificadorCadena(input('ingrese cadena de caracteres  '))
+#verificadorCadena(input('ingrese cadena de caracteres  '))
 
 # Funciones de recursion
 
@@ -160,7 +160,7 @@ def generarPI(n):
     suma= reduce(lambda x,y: x + y, terminos)
     return suma
 
-print(generarPI(int(input('ingresar el valor de elementos de a sumar en la Serie de Leibniz  '))))
+#print(generarPI(int(input('ingresar el valor de elementos de a sumar en la Serie de Leibniz  '))))
 
 # Formato de Intercambio de Datos  ##############################################
 
@@ -232,7 +232,223 @@ def encontrarMenor(listaVolt):
         pos+=1
     return posicion
 
-print(Lista_diccs[encontrarMenor(generarPromedios(Lista_diccs))].get('nombre'))
+
+def estacionValida(nombre, lista_diccs):
+    esta = False
+    for estacion in lista_diccs:
+        if estacion.get('nombre') == nombre:
+            esta = True
+    # print(esta)
+    return esta
 
 
+def obtenerPosEstacion(nombre, lista_estaciones):
+    pos = 0
+    estacion = lista_estaciones[pos]
+    while not nombre == estacion['nombre'] and pos < len(lista_estaciones):
+        estacion = lista_estaciones[pos]
+        pos = pos + 1
 
+    if pos == len(lista_estaciones):
+        return -1
+    else:
+        return pos
+
+
+##################################################
+# menu de navegacion de programa                ##
+##################################################
+salir = False
+print("Bienvenido al programa de Wehitt-Salazar\n")
+
+while not salir :
+    print("Seleccione una opcion numerica del menu:\n")
+
+    print(" - 1- Validar Matriculas de aeronaves")
+    print(" - 2- Validar cadenas de numeros naturales")
+    print(" - 3- Validacion de una cadena")
+    print(" - 4- Codificar numero entero")
+    print(" - 5- Convertir una lista de listas en una sola lista")
+    print(" - 6- Decidir si dos listas de numeros enteros son iguales")
+    print(" - 7- Division entera de dos enteros positivos.")
+    print(" - 8- Decidir si un numero entero tiene cantidad de digitos par")
+    print(" - 9- Codificar entero con un 2 en cada posicion par.")
+    print(" -10- Filtrar pantentes AA de una lista de patentes")
+    print(" -11- Map filter y reduce")
+    print(" -12- Aproximacion de numero PI")
+    print(" -13- Mostrar sensores disponibles")
+    print(" -14- Mostrar estacion con menos bateria")
+    #print(" -15- Mostrar estacion con menos bateria 2")
+    print(" -15- Salir")
+    print("")
+    opcion = int(input("Ingrese la opcion: "))
+
+
+    listoMatricula = False
+    listoCadenaNaturales = False
+    listoCadenaExtra = False
+    listoCodificarNumero = False
+    listoListaDeListas = False
+    listoListasIguales = False
+    listoDivisionEntera = False
+    listoCantidadDigitosPar = False
+    listoUnDosEnCadaPosPar = False
+    listoFiltrarPatentes = False
+    listoAproximarPI = False
+    listoEstacionSensores = False
+    if opcion == 1 :
+        print("\nLas matriculas de las aeronaves en Argentina tienen un formato de acuerdo a su tipo. Comienzan con LV o con LQ")
+        while not listoMatricula :
+            print("\nAlgunos ejemplos de matriculas son: LV-QWE LQ-ABE LV-X443 LV-S586 LV-SX334.")
+            matricula = input("Ingrese la matricula a validar se utilizara esta expresion: ""^(L[VQ]-[A-Z]{2}([D-Z]{1}|[A-B]{1}))|(LV-[XS][0-9]{3})|(LV-(SX)[0-9]{3}$)"" \n")
+            if verificadorMatricula(matricula) :
+                print("La matricula fue ingresada correctamente.")
+            else :
+                print("La matricula no fue ingresada correctamente.")
+            opcionMatricula = input("Desea ingresar otra matricula? s/n ")
+            listoMatricula = opcionMatricula == 'n'
+    elif opcion == 2 :
+        print("\nSe validara la cadena de numeros naturales menores a 1900")
+        while not listoCadenaNaturales :
+            cadena = input("\nIngrese cadena de numeros naturales: ")
+            if verificadorNumero(cadena) :
+                print("La cadena tiene un formato correcto.")
+            else :
+                print("La cadena no tiene un formato correcto.")
+            opcionCadenaNumeros = input("Desea ingresar otra cadena? s/n")
+            listoCadenaNaturales = opcionCadenaNumeros == 'n'
+    elif opcion == 3 :
+        print("Se analizara si la cadena ingresada contiene la primer letra de la primer palabra en mayuscula y las demas letras en minuscula.")
+        while not listoCadenaExtra :
+            cadena = input("Ingrese la cadena se evaluara la expresion [A-Z][a-z]+: ")
+            verificadorCadena(cadena)
+            opcionCadena = input("Desea ingresar otra cadena? s/n ")
+            listoCadenaExtra = opcionCadena == 'n'
+    elif opcion == 4 :
+        print("Se codificara un numero entero. Cada digito par se modificara por un 1 y cada digito impar se modificara por un 2.")
+        while not listoCodificarNumero :
+            numero = int(input("Ingrese numero entero: "))
+            print("El numero "+ str(numero) +" se codifica a "+ str(codificar(numero)) )
+            opcionCodificar = input("Desea ingfresar otro numero? s/n ")
+            listoCodificarNumero = opcionCodificar == 'n'
+    elif opcion == 5 :
+        while not listoListaDeListas :
+            print("Se procedera a generar una lista de listas de enteros")
+            lista = []
+            listoGenerarLista = False
+            while not listoGenerarLista :
+                cadena = input("Ingrese enteros separados por "","" : ")
+                lista.append(cadena.split(','))
+                opcion = input("Desea agregar otra lista de enteros? s/n ")
+                listoGenerarLista = opcion == 'n'
+            print("Ha generado la sigueiente lista: ")
+            print(lista)
+            print("La lista resultante es: ")
+            print(listar(lista))
+            opcion = input("Desea generar otra lista? s/n ")
+            listoListaDeListas = opcion == 'n'
+    elif opcion == 6 :
+        while not listoListasIguales :
+            print("Se procedera a generar las listas para decidir si son iguales.")
+            lista1 = []
+            lista2 = []
+            cadenaLista1 = input("Ingrese los numeros enteros separados por "","" para la primera lista:")
+            cadenaLista2 = input("Ingrese los numeros enteros separados por "","" para la segunda lista:")
+            lista1.append(cadenaLista1.split(','))
+            lista2.append(cadenaLista2.split(','))
+            if listas_iguales(lista1,lista2) :
+                print("Las listas ingresadas son iguales")
+            else :
+                print("Las listas ingresadas no son iguales")
+            opcion = input("Desea ingresar las listas nuevamente? s/n ")
+            listoListasIguales = opcion == 'n'
+    elif opcion == 7 :
+        while not listoDivisionEntera :
+            print("Se procedera a computar la division entera de dos numeros enteros.")
+            numerador = int(input("Ingrese el numerador: "))
+            denominador = int(input("Ingrese el denominador, este debe ser distinto de 0: "))
+            print("El resultado de la division entera de "+str(numerador)+"/"+str(denominador)+" es: ")
+            print(division_entera(numerador,denominador))
+            opcion = input("Desea volver a operar? s/n ")
+            listoDivisionEntera = opcion == 'n'
+    elif opcion == 8:
+        while not listoCantidadDigitosPar :
+            print("Se computara si un numero entero tiene cantidad de digitos par o no \n"+
+                  "ej: 105 devuelve falso porque tiene 3 digitos \n" +
+                  "    6789 devuelve verdadero porqie tiene 4 digitos\n"
+                  )
+            numero = int(input("Ingrese numero entero: "))
+            if esPar(numero) :
+                print("El numero ingresado tiene cantidad de digitos par")
+            else :
+                print("El numero ingresado tiene cantidad de digitos impar")
+            opcion = input("Desea volver a operar? s/n ")
+            listoCantidadDigitosPar = opcion == 'n'
+    elif opcion == 9 :
+        while not listoUnDosEnCadaPosPar :
+            print("Se generara un numero a partir del que usted ingrese con un numero 2 en la posicion donde halla digitos en posicion par.\n"+
+                    " ej: para 123456\n"+
+                    "  genera 123252\n")
+            numero = int(input("Ingrese numero para operarlo: "))
+            numero2 = un_dos(numero)
+            print("El numero generado es: "+str(numero2))
+            opcion = input("Desea volver a operar? s/n ")
+            listoUnDosEnCadaPosPar = opcion == 'n'
+    elif opcion == 10 :
+        while not listoFiltrarPatentes :
+            print("Se filtraran las patentes de una lista que se generara a continuacion.")
+            print("El formato de las patentes debe ser XX-nnn-XX. donde X es una letra en mayuscula, y n es un digito")
+            lista = []
+            listoGenerarLista = False
+            while not listoGenerarLista:
+                cadena = input("Ingrese patente: ")
+                lista.append(cadena)
+                opcion = input("Desea agregar otra patente? s/n ")
+                listoGenerarLista = opcion == 'n'
+            print("Ha generado la sigueiente lista: ")
+            print(lista)
+            print("Y se han filtrado: "+str(lista_AA(lista)))
+            opcion = input("Desea volver a operar? s/n ")
+            listoFiltrarPatentes = opcion == 'n'
+    elif opcion == 11 :
+        print("Las funciones map() filter() y reduce() son funciones que se aplican a listas de elementos.\n"+
+              "Estas son practicas para manipular listas sin tener que llegar a escribir estructuras de repeticion.\n"+
+              "Por ejemplo map(una_funcion, una_lista) en Python aplica una función a cada uno de los elementos de una lista y la retorna.\n"+
+              "La funcion filter(una_funcion, una_lista) filtra y retorna una lista de elementos para los que una función devuelve True.\n" +
+              "La funcion reduce(una_funcion, valores) se utiliza principalmente para llevar a cabo un cálculo acumulativo sobre una lista de valores y devolver el resultado.\n")
+        print("\n")
+        print("Para entender mejor estas funciones vea el archivo .jpg que se adjunta junto a este programa.\n")
+        input("Presione ENTER para volver al menu.")
+    elif opcion == 12 :
+        print("El numero PI es un numero irracional y una de las constantes matemáticas más importantes.\n"+
+              "Como no es posible determinar su valor exacto, se puede aproximar mediante la serie de Leibniz.\n" +
+              "Una aproximacion puede ser: 3.1425956623646125\n")
+        while not listoAproximarPI :
+            numero = int(input("Ingrese un numero natural para computar en la serie (menor a 997): "))
+            print("Usted aproximo el numero PI a :" + str(generarPI(numero)))
+            opcion = input("Desea volver a intentarlo? s/n ")
+            listoAproximarPI = opcion == 'n'
+    elif opcion == 13 :
+        print("A partir del nombre de la estacion se mostrara en pantalla los sensores disponibles.")
+        while not listoEstacionSensores :
+            nombre = input("Ingrese el nombre de la estacion: ")
+            #lista_diccs= json.loads(docSensores_json)
+            if estacionValida(nombre,Lista_diccs) :
+                estacion = obtenerPosEstacion(nombre,Lista_diccs)
+                imprimirSensoresEstacion(Lista_diccs[estacion])
+            else :
+                print("La estacion no se encuetra")
+            opcion = input("Desea ingresar otra estacion? s/n ")
+            listoEstacionSensores = opcion == 'n'
+    elif opcion == 14 :
+        print("La estacion con menos bateria es (se buscara en representacion json): ")
+        print(Lista_diccs[encontrarMenor(generarPromedios(Lista_diccs))].get('nombre'))
+        input("Presione ENTER para volver al menu\n")
+    # elif opcion == 15 :
+    #     print("La estacion con menos bateria es (se buscara en representacion xml): ")
+    #     #llamada a la funcion - imprimir resultado
+    #     input("Presione ENTER para volver al menu\n")
+    else:
+        salir = True
+
+print("Muchas gracias por utilizar el programa.\n             Que tenga lindo dia.")
